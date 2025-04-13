@@ -1,16 +1,21 @@
 class Product:
-    def __init__(self, name, price, stock):
+    def __init__(self, name, price, stock, category):
         self.name = name
         self.price = price
         self.stock = stock
+        self. category=category
+        self. reviews=[]
+        
 
     def update_stock(self, quantity):
         if self.stock >= quantity:
             self.stock -= quantity
             return True
-        return False
-
-
+        return False    
+        
+    def add_reviews (self, review): 
+       self. reviews. append(review) 
+        
 class Customer:
     def __init__(self, name):
         self.name = name
@@ -53,13 +58,18 @@ class Order:
         total = self.customer.cart.apply_discount(0)  # Calculate final total before clearing
         self.customer.cart.items.clear()
         return f"Order processed for {self.customer.name}. Total: ${total:.2f}"
-
-
-# Example usage
+        
+    def make_payment (self, method="Credit card "): 
+         return f" Payment is successfully received by using {method}
+         
+    # Example usage
 product1 = Product("Laptop", 1000, 5)
+print(product1. add_reviews ())    
 product2 = Product("Phone", 500, 10)
+print(product2. add_reviews ())
 customer = Customer("Alice")
 customer.add_to_cart(product1, 1)
 customer.add_to_cart(product2, 2)
 order = Order(customer)
 print(order.process_order())
+print(order.make_payment ()) 
