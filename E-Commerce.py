@@ -16,6 +16,9 @@ class Product:
     def add_reviews (self, review): 
        self. reviews. append(review) 
         
+    def get_details (self):
+       print (f"Product:{self.name},Price:{self.price}, Stock:{self.stock}, Category:{self.category}") 
+        
 class Customer:
     def __init__(self, name):
         self.name = name
@@ -63,10 +66,12 @@ class Order:
          return f" Payment is successfully received by using {method}"
          
     # Example usage
-product1 = Product("Laptop", 1000, 5)
-print(product1. add_reviews ())    
+product1 = Product("Laptop", 1000, 5,"Electronics")
+print(product1. add_reviews ()) 
+print (product1.get_details () ) 
 product2 = Product("Phone", 500, 10)
-print(product2. add_reviews ())
+product2. add_reviews ()
+product2.get_details ()
 customer = Customer("Muqtasid Khan")
 customer.add_to_cart(product1, 1)
 customer.add_to_cart(product2, 2)
