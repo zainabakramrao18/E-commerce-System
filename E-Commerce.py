@@ -60,7 +60,7 @@ class Order:
         return f"Order processed for {self.customer.name}. Total: ${total:.2f}"
         
     def make_payment (self, method="Credit card "): 
-         return f" Payment is successfully received by using {method}
+         return f" Payment is successfully received by using {method}"
          
     # Example usage
 product1 = Product("Laptop", 1000, 5)
