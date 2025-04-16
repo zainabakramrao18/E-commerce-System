@@ -52,9 +52,12 @@ class ShoppingCart:
 
     def apply_discount(self, percentage):
         return sum(product.price * qty * (1 - percentage / 100) for product, qty in self.items.items())
-
-
-class Order:
+        
+    def view_cart(self) :
+        print("shopping cart") 
+        
+        
+class Order:   
     def __init__(self, customer):
         self.customer = customer
         self.total_price = customer.cart.apply_discount(0)
@@ -80,3 +83,5 @@ customer.add_to_cart(product2, 2)
 order = Order(customer)
 print(order.process_order())
 print(order.make_payment ()) 
+mycart=ShoppingCart() 
+mycart. view_cart() 
