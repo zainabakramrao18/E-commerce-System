@@ -20,8 +20,10 @@ class Product:
        print (f"Product:{self.name},Price:{self.price}, Stock:{self.stock}, Category:{self.category}") 
         
 class Customer:
-    def __init__(self, name):
+    def __init__(self, name,email,address):
         self.name = name
+        self.email=email 
+        self.address=address 
         self.cart = ShoppingCart()
 
     def add_to_cart(self, product, quantity):
@@ -66,7 +68,7 @@ class Order:
          return f" Payment is successfully received by using {method}"
          
     # Example usage
-product1 = Product("Laptop", 1000, 5,"Electronics")
+product1 = Product("Laptop", 1000, 5,"Electronics","dgad@gamil.com","Multan")
 print(product1. add_reviews ()) 
 print (product1.get_details () ) 
 product2 = Product("Phone", 500, 10)
