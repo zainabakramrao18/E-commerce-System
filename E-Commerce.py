@@ -12,15 +12,15 @@ class Product:
             return True
         return False
 
-    def add_review(self, review):
-        self.reviews.append(review)
+    def add_review(self, review, rating):
+        self.reviews.append({"review": review, "rating": rating})
 
     def get_details(self):
         print(f"\nProduct: {self.name}, Price: ${self.price}, Stock: {self.stock}, Category: {self.category}")
         if self.reviews:
             print("Reviews:")
             for review in self.reviews:
-                print(f" - {review}")
+                print(f" - {review['review']} (Rating: {review['rating']}/5)")
         else:
             print("No reviews yet.")
 
@@ -35,8 +35,16 @@ class Customer:
     def add_to_cart(self, product, quantity):
         return self.cart.add_product(product, quantity)
 
-    def remove_from_cart(self, product):
-        return self.cart.remove_product(product)
+    def update_product(self, product, name=None, price=None, stock=None, category=None):
+        if name:
+            product.name = name
+        if price:
+            product.price = price
+        if stock:
+            product.stock = stock
+        if category:
+            product.category = category
+        print(f"Product {product.name} updated successfully!")
 
 
 class ShoppingCart:
