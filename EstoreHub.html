@@ -3,18 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Store</title>
-    <style>
+    <title>EstoreHub - Your Online Marketplace</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <style>
+        /* Basic CSS - You'll likely want to move this to a separate CSS file (style.css) */
         body {
             font-family: sans-serif;
             margin: 20px;
             background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        main {
+            display: flex;
+            gap: 20px;
         }
         .product-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-bottom: 20px;
+            flex-grow: 1;
         }
         .product-card {
             background-color: #fff;
@@ -22,6 +59,14 @@
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
         }
         .product-card h3 {
             margin-top: 0;
@@ -29,45 +74,67 @@
         }
         .product-details {
             margin-bottom: 10px;
+            flex-grow: 1;
         }
         .price {
             color: green;
             font-weight: bold;
+            font-size: 1.1em;
         }
         .stock {
             color: orange;
+            font-size: 0.9em;
         }
         .category {
             color: #777;
             font-style: italic;
+            font-size: 0.9em;
+        }
+        .reviews-section {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: #555;
         }
         .reviews-section h4 {
-            margin-top: 15px;
-            color: #555;
+            margin-top: 5px;
         }
         .review-item {
             border-top: 1px solid #eee;
-            padding-top: 10px;
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #666;
+            padding-top: 5px;
+            margin-top: 5px;
         }
-        .customer-info {
-            background-color: #e9ecef;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        .add-to-cart {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .cart-info {
+        .add-to-cart:hover {
+            background-color: #0056b3;
+        }
+        .sidebar {
             background-color: #f8f9fa;
+            border: 1px solid #ddd;
             padding: 15px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            width: 300px;
+        }
+        .customer-info h2, .cart-info h2, .order-summary h2 {
+            color: #555;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
         }
         .cart-item {
             border-bottom: 1px dashed #ccc;
             padding-bottom: 10px;
             margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .cart-item:last-child {
             border-bottom: none;
@@ -80,75 +147,30 @@
             padding: 15px;
             border-radius: 8px;
         }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1> EstoreHub </h1>
+        <h1>EstoreHub</h1>
         <nav>
-            <a href="#">Home</a> | <a href="#">Products</a> | <a href="#">Cart</a> | <a href="#">Account</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Categories</a> </li>
+                <li><a href="#">Cart (2)</a></li> <li><a href="#">Account</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
         <section class="product-list">
-            <div class="product-card">
-                <h3>Laptop</h3>
-                <div class="product-details">
-                    <p class="price">$1000</p>
-                    <p class="stock">Stock: 5</p>
-                    <p class="category">Electronics</p>
-                </div>
-                <div class="reviews-section">
-                    <h4>Reviews:</h4>
-                    <p>No reviews yet.</p>
-                </div>
-                <button>Add to Cart</button>
-            </div>
-
-            <div class="product-card">
-                <h3>Phone</h3>
-                <div class="product-details">
-                    <p class="price">$500</p>
-                    <p class="stock">Stock: 10</p>
-                    <p class="category">Electronics</p>
-                </div>
-                <div class="reviews-section">
-                    <h4>Reviews:</h4>
-                    <p>No reviews yet.</p>
-                </div>
-                <button>Add to Cart</button>
-            </div>
-
-            </section>
-
-        <section class="customer-info">
-            <h2>Customer Information</h2>
-            <p><strong>Name:</strong> Muqtasid Khan </p>
-            </section>
-
-        <section class="cart-info">
-            <h2>Shopping Cart</h2>
-            <div class="cart-item">
-                <strong>Laptop</strong> - Quantity: 1
-            </div>
-            <div class="cart-item">
-                <strong>Phone</strong> - Quantity: 2
-            </div>
-            <p><strong>Total:</strong> $2000</p> <button>Checkout</button>
-        </section>
-
-        <section class="order-summary">
-            <h2>Order Summary</h2>
-            <p><strong>Order processed for:</strong> Alice</p>
-            <p><strong>Total:</strong> $2000.00</p>
-            <p><strong>Payment method:</strong> Credit card </p>
-            <p>Payment is successfully received by using Credit card </p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 EstoreHub </p>
-    </footer>
-</body>
-</html>
+            <article class="product-card">
+                <img src="laptop.jpg" alt="
