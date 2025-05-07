@@ -4,7 +4,7 @@
 
 In today's rapidly expanding online retail landscape, a robust and efficient e-commerce system is paramount for managing products, customer interactions, shopping experiences, and seamless order fulfillment. This document outlines the design considerations for such a system, focusing on core functionalities from product management to order processing. The goal is to provide a clear understanding of the system's fundamental components and their responsibilities, ensuring accurate inventory tracking, streamlined customer workflows, and secure transaction handling.
 
-## Core System Components
+## Core System Components:
 
 This e-commerce system is architected around four key interconnected components, each encapsulated within a dedicated class:
 
